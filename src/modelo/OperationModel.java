@@ -1,6 +1,7 @@
 package modelo;
 
 import java.security.SecureRandom;
+import java.util.ArrayList;
 
 public class OperationModel {
     protected enum Tipo { CARGA, PASAJEROS, PRIVADO }
@@ -18,6 +19,9 @@ public class OperationModel {
             "Volaris"
     };
     private static final SecureRandom random = new SecureRandom();
+    private static final ArrayList<Vuelo> vuelos = new ArrayList<>();
+    
+
 
     public OperationModel(){}
 

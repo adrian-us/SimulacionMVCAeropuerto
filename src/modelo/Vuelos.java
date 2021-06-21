@@ -60,7 +60,7 @@ public class Vuelos implements Runnable {
 
     public static void main(String[] args) throws IOException {
         Socket socketRef = new Socket("localhost",PUERTO);
-        Vuelos vuelos = new Vuelos(socketRef,10); /* Cada [ 5 ] segundos */
+        Vuelos vuelos = new Vuelos(socketRef,4); /* Cada [ 5 ] segundos */
         vuelos.run();
     }
 }

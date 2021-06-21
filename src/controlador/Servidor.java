@@ -36,7 +36,6 @@ public class Servidor {
             //conexiones.add(nuevoHilo);
             conexiones.put(identificador, nuevoHilo);
             nuevoHilo.start();
-            reader.close();
         }
     }
 
