@@ -4,10 +4,12 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :::p, par t {comp panel1:::p:854:p, seq {comp scrollPane2:::p:200:p, space s:::p, comp scrollPane3:::p:200:p, space s:::p, comp scrollPane4:::p:200:p, space s:::p, comp scrollPane5:::p:200:p}}, space ::13:x}}"
-			"$verticalGroup": "par l {seq t {space :::p, comp panel1:::p:34:p, space :::x, par l:::p {comp scrollPane5::l::576:x, comp scrollPane4::l::576:x, comp scrollPane3::l::576:x, comp scrollPane2::::576:x}, space :p:633:p}}"
+			"$horizontalGroup": "par l {seq l {space :p:21:p, par l {comp panel1:::p:800:p, seq {comp scrollPane2:::p:185:p, space :::p, comp scrollPane3:::p:198:p, space :::p, comp scrollPane4:::p:198:p, space :::p, par l {comp scrollPane5:::p:201:p, seq t {comp button1:::p::p, space :p:37:p}}}}, space ::52:x}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp panel1:::p:34:p, space :::x, par l:::p {comp scrollPane2::l::576:x, comp scrollPane3::l::576:x, comp scrollPane4::l::576:x, seq l {comp scrollPane5:::p:514:p, space :::x, comp button1:::p::p}}, space :p:633:p}}"
 		} ) {
 			name: "this"
+			"resizable": false
+			"$sizePolicy": 1
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane2"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
@@ -65,9 +67,14 @@ new FormModel {
 					"text": "Desembarcando"
 				} )
 			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "prueba"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
+			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 10, 5 )
-			"size": new java.awt.Dimension( 875, 665 )
+			"size": new java.awt.Dimension( 875, 685 )
+			"location": new java.awt.Point( 0, 0 )
 		} )
 	}
 }
