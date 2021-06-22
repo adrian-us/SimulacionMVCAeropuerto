@@ -1,4 +1,4 @@
-package modelo;
+package AplicacionControlador;
 
 public class Puerta {
     private boolean ocupada = false;
@@ -19,3 +19,4 @@ public class Puerta {
     }
 
 }
+
