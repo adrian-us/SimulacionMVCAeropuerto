@@ -1,6 +1,7 @@
 package controlador;
 
 import modelo.OperationModel;
+import modelo.Vuelo;
 import vista.OperationView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +15,7 @@ public class OperationController implements ActionListener {
     public OperationController(OperationModel modelo, OperationView vista){
         this.modelo = modelo;
         this.vista = vista;
-        servidor = new Servidor();
+        servidor = new Servidor(this);
         _init_();
     }
 
