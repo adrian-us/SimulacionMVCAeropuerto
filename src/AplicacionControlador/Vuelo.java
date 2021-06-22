@@ -54,7 +54,7 @@ public class Vuelo {
 
     public void setSiguienteEstado(){
         switch (estado) {
-            case ENTRANTE -> setEstado(Estado.ATERRIZANDO);
+            case ENTRANTE -> setEstado(estado.ATERRIZANDO);
             case ATERRIZANDO -> setEstado(Estado.DESEMBARCANDO);
             case DESEMBARCANDO -> setEstado(Estado.FINALIZADO);
         }
@@ -80,5 +80,16 @@ public class Vuelo {
         };
     }
 
+    @Override
+    public String toString() {
+        return "Vuelo" +
+                nombre +
+                "/" + Boolean.toString(atrasado) +
+                "/" + Integer.toString(tiempoAterrizaje) +
+                "/" + Integer.toString(tiempoDesembarque) +
+                "/" + estado +
+                "/" + tipo
+                ;
+    }
 }
 
