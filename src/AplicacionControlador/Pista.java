@@ -1,6 +1,6 @@
-package modelo;
+package AplicacionControlador;
 
-import modelo.OperationModel.Pistas;
+import AplicacionControlador.Controlador.Pistas;
 
 public class Pista {
     private final Pistas tipo;

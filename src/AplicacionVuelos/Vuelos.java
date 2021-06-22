@@ -1,9 +1,5 @@
 package AplicacionVuelos;
 
-/* Vuelos viene siendo el modelo es decir la clase que tiene las funciones necesarias para
-   que el controlador logre hacer su simulacion, toda la simulacion se programa en Controlador no aca */
-
-import modelo.OperationModel;
 import javax.swing.*;
 import javax.swing.plaf.DimensionUIResource;
 import java.io.DataOutputStream;
@@ -14,6 +10,17 @@ import java.security.SecureRandom;
 import static java.lang.Thread.sleep;
 
 public class Vuelos implements Runnable {
+    private static final String[] AEROLINEAS = {
+            "Allegiant Air",
+            "American Airlines",
+            "Delta",
+            "InterJet",
+            "JetBlue",
+            "Jetstar",
+            "Qatar Airways",
+            "Spirit",
+            "Volaris"
+    };
     private static final SecureRandom random = new SecureRandom();
     private static final int PUERTO = 35775;
     private final int intervalo;
@@ -56,11 +63,9 @@ public class Vuelos implements Runnable {
                 sleep(intervalo * 1000L);
                 writer.writeByte(0); /* Notificacion tipo 'A' : 0 : Nuevo avion entrante */
                 writer.writeInt(aleatorio(0,3)); /* Paso el tipo de vuelo */
-                writer.writeInt(contador); /* Paso la identificacion/numero de vuelo */
-                writer.writeUTF(OperationModel.getAEROLINEAS()[aleatorio(0,9)]+contadorStr); /* Paso el nombre del vuelo */
-                writer.writeInt(5); /* Paso el tiempo de llegada */
+                writer.writeInt(contador); /* Paso el nombre del vuelo */
+                writer.writeUTF(AEROLINEAS[aleatorio(0,9)]+contadorStr); /* Paso la identificacion del vuelo */
                 writer.writeInt(5); /* Paso el tiempo de aterrizaje */
-                writer.writeInt(5); /* Paso el tiempo de embarque */
                 writer.writeInt(5); /* Paso el tiempo de desembarque */
                 contador++;
                 interfaz.agregarRegistro("Nuevo vuelo entrante, controlador notificado. Cantidad de vuelos aceptados : " + contador);
@@ -72,8 +77,7 @@ public class Vuelos implements Runnable {
 
     public static void main(String[] args) throws IOException {
         Socket socketRef = new Socket("localhost",PUERTO);
-        OperationModel modelo = new OperationModel();
-        Vuelos vuelos = new Vuelos(socketRef,4); /* Cada [ 5 ] segundos */
+        Vuelos vuelos = new Vuelos(socketRef,15); /* Cada [ 5 ] segundos */
         vuelos.run();
     }
 
