@@ -37,10 +37,6 @@ public class Main implements Runnable {
         frame.setVisible(true);
     }
 
-    private static int aleatorio(int min, int max){
-        return random.nextInt(max - min) + min;
-    }
-
     @Override
     public void run(){
         Scanner sc= new Scanner(System.in); //System.in is a standard input stream
