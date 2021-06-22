@@ -6,6 +6,8 @@ import modelo.Vuelo;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ThreadServidor extends Thread{
@@ -34,6 +36,7 @@ public class ThreadServidor extends Thread{
     @Override
     public void run(){
         byte instruccionID;
+
         while (running){
             try {
                 instruccionID = reader.readByte(); /* Esperar hasta que reciba un Byte */
@@ -55,7 +58,15 @@ public class ThreadServidor extends Thread{
                             System.out.println("Vuelo embarcando listo para desembarcar!");
                     case 3 -> /* Tipo 'D' : 3 : Vuelo desembarcando termino de desembarcar, listo para declararse finalizado */
                             System.out.println("Vuelo desembarcando listo para declararse finalizado!");
-                    default -> System.out.println("Mensaje recibido pero no existe instruccion respectiva!");
+
+                    //El caso 4 funciona para la ventana de informacion
+                    case 4 -> {
+                        System.out.println(reader.readUTF());
+                        writer.writeUTF(servidor.obtenerInformacion());
+                    }
+                    default -> {
+                        System.out.println("Origen del request desconocido.");
+                    }
                 }
             } catch (IOException ignored) {}
         }

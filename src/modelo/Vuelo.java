@@ -94,5 +94,18 @@ public class Vuelo {
     public int getTiempoDesembarque() {return tiempoDesembarque; }
     public Estado getEstado(){ return estado; }
 
+    @Override
+    public String toString() {
+        return "Vuelo" +
+                nombre +
+                "/" + Boolean.toString(atrasado) +
+                "/" + Integer.toString(tiempoLlegada) +
+                "/" + Integer.toString(tiempoAterrizaje) +
+                "/" + Integer.toString(tiempoDesembarque) +
+                "/" + estado +
+                "/" + tipo
+                ;
+    }
+
     public void setEstado(Estado estado){ this.estado = estado; }
 }

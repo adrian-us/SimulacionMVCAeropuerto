@@ -46,4 +46,7 @@ public class Servidor {
         controlador.agregarVuelo(vuelo);
     }
 
+    public String obtenerInformacion() {
+        return controlador.datosVuelos();
+    }
 }

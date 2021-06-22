@@ -6,6 +6,7 @@ import vista.OperationView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class OperationController implements ActionListener {
     OperationModel modelo;
@@ -45,4 +46,12 @@ public class OperationController implements ActionListener {
     }
 
 
+    public String datosVuelos() {
+        String respuesta = "";
+        ArrayList<Vuelo> vuelos = modelo.getVuelos();
+        for(Vuelo vuelo: vuelos){
+            respuesta += vuelo.toString();
+        }
+        return respuesta;
+    }
 }
