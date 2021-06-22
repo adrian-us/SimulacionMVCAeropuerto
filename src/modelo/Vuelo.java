@@ -4,6 +4,7 @@ import java.security.SecureRandom;
 import modelo.OperationModel.Estado;
 import modelo.OperationModel.Tipo;
 
+
 public class Vuelo {
     private final String nombre;
     private final int id;
@@ -15,6 +16,7 @@ public class Vuelo {
     private Estado estado;
     private final Tipo tipo;
     private static final SecureRandom secureRandom = new SecureRandom();
+
     public Vuelo(final Tipo tipo,
                  final int id,
                  final String nombre,

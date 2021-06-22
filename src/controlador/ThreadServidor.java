@@ -43,6 +43,8 @@ public class ThreadServidor extends Thread{
                         System.out.println("Tiempo de embarque : " + reader.readInt());
                         System.out.println("Tiempo de desembarque : " + reader.readInt());
                         System.out.println("=====================================\n");
+                        /* Notificar a la vista controlador (vista)*/
+                        
                     }
                     case 1 -> /* Tipo 'B' : 1 : Vuelo aterrizando termino de aterrizar, listo para embarcar */
                             System.out.println("Vuelo aterrizando listo para embarcar!");

@@ -20,8 +20,6 @@ public class OperationModel {
     };
     private static final SecureRandom random = new SecureRandom();
     private static final ArrayList<Vuelo> vuelos = new ArrayList<>();
-    
-
 
     public OperationModel(){}
 
@@ -55,6 +53,9 @@ public class OperationModel {
         }
         return false;
     }
+
+
+    //todo asignar puerta booleano
 
     public static String[] getAerolineas(){
         return AEROLINEAS;
