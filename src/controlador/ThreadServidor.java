@@ -1,6 +1,7 @@
 package controlador;
 
 import modelo.OperationModel;
+import modelo.Vuelo;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -12,7 +13,7 @@ public class ThreadServidor extends Thread{
     private final DataInputStream reader;
     private final DataOutputStream writer;
     private static final boolean running = true;
-    Servidor servidor;
+    public Servidor servidor;
 
     public ThreadServidor(final Socket socketRef,
                           final Servidor servidor,
@@ -21,6 +22,12 @@ public class ThreadServidor extends Thread{
         writer = new DataOutputStream(socketRef.getOutputStream());
         this.servidor = servidor;
         this.id = id;
+    }
+
+    public Vuelo crearVueloConDatos(OperationModel.Tipo tipo, int id, String nombre, int tiempoLlegada,
+                                    int tiempoAterrizaje, int tiempoEmbarque, int  tiempoDesembarque){
+        Vuelo vuelo = new Vuelo(tipo, id, nombre, tiempoLlegada, tiempoAterrizaje, tiempoEmbarque, tiempoDesembarque);
+        return vuelo;
     }
 
 
@@ -32,17 +39,15 @@ public class ThreadServidor extends Thread{
                 instruccionID = reader.readByte(); /* Esperar hasta que reciba un Byte */
                 switch (instruccionID) {
                     case 0 -> /* Tipo 'A' : 0 : Vuelo entrante listo para aterrizar */{
-                        System.out.println("=====================================");
-                        System.out.println("Vuelo entrante listo para aterrizar!");
-                        System.out.println("Tipo de vuelo : " + OperationModel.decifrarTipoVuelo(reader.readInt()));
-                        System.out.println("Identificacion : " + reader.readInt());
-                        System.out.println("Nombre del vuelo : " + reader.readUTF());
-                        System.out.println("Estado del vuelo : " + OperationModel.decifrarEstadoVuelo(reader.readInt()));
-                        System.out.println("Tiempo de llegada : " + reader.readInt());
-                        System.out.println("Tiempo de aterrizaje : " + reader.readInt());
-                        System.out.println("Tiempo de embarque : " + reader.readInt());
-                        System.out.println("Tiempo de desembarque : " + reader.readInt());
-                        System.out.println("=====================================\n");
+                        servidor.agregarVuelo(this.crearVueloConDatos(
+                                OperationModel.decifrarTipoVuelo(reader.readInt()),
+                                reader.readInt(),
+                                reader.readUTF(),
+                                reader.readInt(),
+                                reader.readInt(),
+                                reader.readInt(),
+                                reader.readInt()
+                        ));
                     }
                     case 1 -> /* Tipo 'B' : 1 : Vuelo aterrizando termino de aterrizar, listo para embarcar */
                             System.out.println("Vuelo aterrizando listo para embarcar!");

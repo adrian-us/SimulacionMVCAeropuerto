@@ -14,10 +14,9 @@ public class OperationController implements ActionListener {
     Servidor servidor;
 
 
-
     public OperationController(OperationModel modelo){
         this.modelo = modelo;
-        servidor = new Servidor();
+        servidor = new Servidor(this);
     }
 
 
@@ -30,4 +29,11 @@ public class OperationController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
     }
+
+    public void agregarVuelo(Vuelo vuelo){
+        modelo.agregarVuelo(vuelo);
+        modelo.mostrarVuelos();
+    }
+
+
 }

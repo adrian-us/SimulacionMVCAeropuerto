@@ -12,13 +12,16 @@ public class Vuelo {
     private int tiempoAterrizaje;
     private int tiempoEmbarque;
     private int tiempoDesembarque;
+
+    //TODO: Hacer que el avion cambie a atrasado cuando se cumple cierto numero por la suma de todos los tiempos
+    private int tiempoParaEstarAtrasado;
+
     private Estado estado;
     private final Tipo tipo;
     private static final SecureRandom secureRandom = new SecureRandom();
     public Vuelo(final Tipo tipo,
                  final int id,
                  final String nombre,
-                 final Estado estado,
                  final int tiempoLlegada,
                  final int tiempoAterrizaje,
                  final int tiempoEmbarque,
@@ -26,7 +29,7 @@ public class Vuelo {
         this.tipo = tipo;
         this.id = id;
         this.nombre = nombre;
-        this.estado = estado;
+        this.estado = Estado.ENTRANTE;
         atrasado = randomBoolean();
         this.tiempoLlegada = tiempoLlegada;
         this.tiempoAterrizaje = tiempoAterrizaje;
