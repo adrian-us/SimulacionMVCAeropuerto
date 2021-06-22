@@ -37,4 +37,11 @@ public class OperationController implements ActionListener {
             System.out.println("Revisar asignacion de puerta");
         }
     }
+
+    public void agregarVuelo(Vuelo vuelo){
+        modelo.agregarVuelo(vuelo);
+        modelo.mostrarVuelos();
+    }
+
+
 }

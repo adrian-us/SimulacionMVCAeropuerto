@@ -5,13 +5,16 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
+import modelo.Vuelo;
 
 public class Servidor {
     private static HashMap<Integer, ThreadServidor> conexiones;
     private boolean running = true;
     private ServerSocket serverSocket;
+    private OperationController controlador;
 
-    public Servidor(){
+    public Servidor(OperationController controlador){
+        this.controlador = controlador;
         conexiones = new HashMap();
     }
 
@@ -32,11 +35,15 @@ public class Servidor {
             identificador = reader.readInt();
             System.out.println("Conexion establecida : " + identificador);
             /* ========= */
-            ThreadServidor nuevoHilo = new ThreadServidor(refSocket,this,identificador);
+            ThreadServidor nuevoHilo = new ThreadServidor(refSocket,this, identificador);
             //conexiones.add(nuevoHilo);
             conexiones.put(identificador, nuevoHilo);
             nuevoHilo.start();
         }
+    }
+
+    public void agregarVuelo(Vuelo vuelo){
+        controlador.agregarVuelo(vuelo);
     }
 
 }

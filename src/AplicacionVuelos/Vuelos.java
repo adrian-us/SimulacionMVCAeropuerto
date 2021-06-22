@@ -52,12 +52,12 @@ public class Vuelos implements Runnable {
             /* =============== */
 
             try {
+                //TODO: Parametrizar y hacer random los valores, para que cada avion tenga diferentes valores
                 sleep(intervalo * 1000L);
                 writer.writeByte(0); /* Notificacion tipo 'A' : 0 : Nuevo avion entrante */
                 writer.writeInt(aleatorio(0,3)); /* Paso el tipo de vuelo */
                 writer.writeInt(contador); /* Paso la identificacion/numero de vuelo */
-                writer.writeUTF(OperationModel.getAerolineas()[aleatorio(0,9)]+contadorStr); /* Paso el nombre del vuelo */
-                writer.writeInt(0); /* Paso el estado del vuelo -> 0 = ENTRANTE */
+                writer.writeUTF(OperationModel.getAEROLINEAS()[aleatorio(0,9)]+contadorStr); /* Paso el nombre del vuelo */
                 writer.writeInt(5); /* Paso el tiempo de llegada */
                 writer.writeInt(5); /* Paso el tiempo de aterrizaje */
                 writer.writeInt(5); /* Paso el tiempo de embarque */
@@ -72,6 +72,7 @@ public class Vuelos implements Runnable {
 
     public static void main(String[] args) throws IOException {
         Socket socketRef = new Socket("localhost",PUERTO);
+        OperationModel modelo = new OperationModel();
         Vuelos vuelos = new Vuelos(socketRef,4); /* Cada [ 5 ] segundos */
         vuelos.run();
     }
