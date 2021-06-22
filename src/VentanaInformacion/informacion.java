@@ -13,12 +13,11 @@ public class informacion {
         tabla.setModel(model);
         model.addColumn("Nombre");
         model.addColumn("Atrasado");
-        model.addColumn("Tiempo Llegada");
         model.addColumn("Tiempo Aterrizaje");
         model.addColumn("Tiempo Desembarque");
         model.addColumn("Estado");
         model.addColumn("Tipo de Avion");
-        model.setColumnIdentifiers(new Object[]{"Nombre", "Atrasado", "Tiempo Llegada", "Tiempo Aterrizaje", "Tiempo Desembarque", "Estado", "Tipo de Avion"});
+        model.setColumnIdentifiers(new Object[]{"Nombre", "Atrasado", "Tiempo Aterrizaje", "Tiempo Desembarque", "Estado", "Tipo de Avion"});
 
 
 
@@ -32,8 +31,8 @@ public class informacion {
 
         for(String string : newData){
             String[] split = string.split("/");
-            if(split.length ==7)
-            model.addRow(new Object[]{split[0], split[1], split[2], split[3], split[4], split[5], split[6] });
+            if(split.length ==6)
+            model.addRow(new Object[]{split[0], split[1], split[2], split[3], split[4], split[5] });
         }
 
     }

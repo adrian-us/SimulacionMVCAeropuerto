@@ -70,7 +70,6 @@ public class ThreadServidor extends Thread{
             try {
                 instruccionID = reader.readByte(); /* Esperar hasta que reciba un Byte */
                 switch (instruccionID) {
-
                     /* ================ Tipo 'A' : 0 : Vuelo entrante listo para aterrizar ================ */
                     case 0:
                         int tipoVuelo = reader.readInt();
@@ -78,49 +77,51 @@ public class ThreadServidor extends Thread{
                         String nombre = reader.readUTF();
                         int tiempoAterrizaje = reader.readInt();
                         int tiempoDesembarque = reader.readInt();
-                        servidor.agregarVuelo(this.crearVueloConDatos(Controlador.decifrarTipoVuelo(tipoVuelo),id,nombre, tiempoAterrizaje,tiempoDesembarque));
-
+                        servidor.agregarVuelo(this.crearVueloConDatos(Controlador.decifrarTipoVuelo(tipoVuelo), id, nombre, tiempoAterrizaje, tiempoDesembarque));
                         lock.lock();
                         try {
                             // notificar 'Ventana Controlador'
-                            if (servidor.getConexiones().containsKey(22)){
-                                servidor.getConexiones().get(22).writer.writeByte(0);
-                                servidor.getConexiones().get(22).writer.writeUTF(nombre);
-                                servidor.getConexiones().get(22).writer.writeInt(id);
-                            }
-                            // notificar 'Informacion'
-                            if (servidor.getConexiones().containsKey(33)){
+                            if (servidor.getConexiones().containsKey(22)) {
                                 servidor.getConexiones().get(22).writer.writeByte(0);
                                 servidor.getConexiones().get(22).writer.writeUTF(nombre);
                                 servidor.getConexiones().get(22).writer.writeInt(id);
                             }
                         } catch (Exception e) {
 
-                        } finally {
+                        }finally {
                             lock.unlock();
                         }
                         break;
+
+                    case 4: {
+                        writer.writeUTF(servidor.obtenerInformacion());
+                        break;
+                    }
                     /* ==================================================================================== */
 
 
                     /* =========== Tipo 'E' : 101 : Ventana pidiendo informacion sobre vuelo ============== */
-                    case 101: /*  */
+                    case 101: /*  */{
                         String[] arregloInformacionPistas = servidor.controlador.recolectarInformacionVueloPistas(reader.readInt());
                         lock.lock();
                         try {
-                            for (int i = 0; i < 4; i++){
+                            for (int i = 0; i < 4; i++) {
                                 writer.writeUTF(arregloInformacionPistas[i]);
                             }
-                        } catch (Exception e){
+                        } catch (Exception e) {
 
-                        } finally {
+                        }finally {
                             lock.unlock();
                         }
                         break;
+                }
                     /* ==================================================================================== */
 
 
                     /* =========== Tipo 'E' : 101 : Ventana pidiendo informacion sobre vuelo ============== */
+                    //El caso 4 funciona para la ventana de informacion
+
+
                     case 102:
                         String[] arregloInformacionPuertas = servidor.controlador.recolectarInformacionVueloPuertas(reader.readInt());
                         lock.lock();
@@ -130,7 +131,7 @@ public class ThreadServidor extends Thread{
                             }
                         } catch (Exception e){
 
-                        } finally {
+                        }finally {
                             lock.unlock();
                         }
                         break;

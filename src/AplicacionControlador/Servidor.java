@@ -61,7 +61,6 @@ public class Servidor {
     public HashMap<Integer, ThreadServidor> getConexiones() {
         return conexiones;
     }
-
     public String obtenerInformacion() {
         return controlador.datosVuelos();
     }

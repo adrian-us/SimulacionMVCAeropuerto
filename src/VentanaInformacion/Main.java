@@ -3,7 +3,7 @@ package VentanaInformacion;
 /* Vuelos viene siendo el modelo es decir la clase que tiene las funciones necesarias para
    que el controlador logre hacer su simulacion, toda la simulacion se programa en Controlador no aca */
 
-import modelo.OperationModel;
+
 import javax.swing.*;
 import javax.swing.plaf.DimensionUIResource;
 import java.io.DataInputStream;
@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.security.SecureRandom;
 import java.util.*;
+import AplicacionControlador.Controlador;
 
 import static java.lang.Thread.sleep;
 
@@ -43,29 +44,20 @@ public class Main implements Runnable {
         int contador = 0;
         boolean running = true;
         while (running) {
-            String contadorStr = " ";
-            contadorStr += contador;
-
-            /* Señal de parada */
-            if (contador >= 45){
-                running = false;
-            }
-            /* =============== */
 
             try {
-                String str = "Actualizar ventana de Informacion";
-                sleep(5000);
-                writer.writeByte(4); /* Notificacion tipo 'A' : 0 : Nuevo avion entrante */
-                writer.writeUTF(str); /* Paso el nombre del vuelo */
+                sleep(3000);
+                writer.writeByte(4);
                 parseResponse(reader.readUTF());
-            } catch (IOException | InterruptedException ignored) {}
+            } catch (IOException | InterruptedException ignored) {
+            }
         }
         System.out.println("Termina hilo de Vuelos");
     }
 
     public static void main(String[] args) throws IOException {
         Socket socketRef = new Socket("localhost",PUERTO);
-        OperationModel modelo = new OperationModel();
+        Controlador modelo = new Controlador();
         Main main = new Main(socketRef,4); /* Cada [ 5 ] segundos */
         main.run();
     }
