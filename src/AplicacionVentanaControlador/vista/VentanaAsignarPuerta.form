@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="AplicacionVentanaControlador.vista.VentanaAsignarPuerta">
+  <grid id="27dc6" binding="panelPrincipal" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="429" height="258"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="3d932" class="javax.swing.JLabel" binding="lblNombre">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nombre del vuelo"/>
+        </properties>
+      </component>
+      <component id="2787f" class="javax.swing.JLabel" binding="lblIdentificacion">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Identificacion del vuelo"/>
+        </properties>
+      </component>
+      <component id="97b5e" class="javax.swing.JLabel" binding="labelTipo">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Tipo de Avion"/>
+        </properties>
+      </component>
+      <component id="c0d9e" class="javax.swing.JLabel" binding="lblTipoAvion">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="pasajeros/carga/privado"/>
+        </properties>
+      </component>
+      <component id="52e59" class="javax.swing.JLabel" binding="labelPuertas">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Puertas Disponibles"/>
+        </properties>
+      </component>
+      <component id="bb19b" class="javax.swing.JLabel" binding="lblArregloPuertas">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="arreglo de puertas"/>
+        </properties>
+      </component>
+      <component id="482c3" class="javax.swing.JLabel" binding="labelAsignar">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Asignar puerta"/>
+        </properties>
+      </component>
+      <component id="46bea" class="javax.swing.JComboBox" binding="comboBox">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="Puerta 1"/>
+            <item value="Puerta 2"/>
+            <item value="Puerta 3"/>
+            <item value="Puerta 4"/>
+            <item value="Puerta 5"/>
+          </model>
+        </properties>
+      </component>
+      <component id="35b33" class="javax.swing.JButton" binding="btnAsignar">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Asignar"/>
+        </properties>
+      </component>
+      <component id="77c" class="javax.swing.JButton" binding="btnCancelar">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cancelar"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

@@ -117,6 +117,7 @@ public class Controlador {
 
 
     public String[] getInformacionEspecificaPistas(int identificador){
+        System.out.println("Recopilando informacion de : " + identificador);
         String[] arregloInformacion = new String[4];
         for (Vuelo vuelo : vuelos){
             if (vuelo.getId() == identificador){
@@ -130,6 +131,9 @@ public class Controlador {
                 }
                 arregloInformacion[3] += " ]";
             }
+        }
+        for (int i = 0; i < arregloInformacion.length; i++){
+            System.out.println(arregloInformacion[i]);
         }
         return arregloInformacion;
     }

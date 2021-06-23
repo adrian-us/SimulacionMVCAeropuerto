@@ -1,0 +1,80 @@
+JFDML JFormDesigner: "7.0.4.0.360" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:21:p, par l {comp panel1:::p:800:p, seq {comp scrollPane2:::p:185:p, space :::p, comp scrollPane3:::p:198:p, space :::p, comp scrollPane4:::p:198:p, space :::p, par l {comp scrollPane5:::p:201:p, seq t {comp button1:::p::p, space :p:37:p}}}}, space ::32:x}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp panel1:::p:34:p, space :::x, par l:::p {comp scrollPane2::l::576:x, comp scrollPane3::l::576:x, comp scrollPane4::l::576:x, seq l {comp scrollPane5:::p:514:p, space :::x, comp button1:::p::p}}, space :p:633:p}}"
+		} ) {
+			name: "this"
+			"resizable": false
+			"$sizePolicy": 1
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane2"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+					"columns": 1
+					"rows": 0
+				} ) {
+					name: "panelEntrantes"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane3"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+					"columns": 1
+					"rows": 0
+				} ) {
+					name: "panelAterrizaje"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane4"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+					"columns": 1
+					"rows": 0
+				} ) {
+					name: "panelEmbarque"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane5"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+					"columns": 1
+					"rows": 0
+				} ) {
+					name: "panelDesembarque"
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+				"columns": 4
+			} ) {
+				name: "panel1"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "Entrantes"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label4"
+					"text": "Aterrizando"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "Embarcando"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "Desembarcando"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "prueba"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 855, 690 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}

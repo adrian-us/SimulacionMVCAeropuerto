@@ -102,10 +102,14 @@ public class ThreadServidor extends Thread{
                         break;
                     /* ==================================================================================== */
 
-
+                    // todo !!!!!!!!!
                     /* =========== Tipo 'E' : 101 : Ventana pidiendo informacion sobre vuelo ============== */
                     case 101: /*  */
+                        System.out.println("Me piden informacion sobre vuelo");
                         String[] arregloInformacionPistas = servidor.controlador.recolectarInformacionVueloPistas(reader.readInt());
+                        for (int i = 0; i < arregloInformacionPistas.length; i++){
+                            System.out.println(arregloInformacionPistas[i]);
+                        }
                         lock.lock();
                         try {
                             for (int i = 0; i < 4; i++){
