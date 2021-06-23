@@ -115,6 +115,15 @@ public class Controlador {
         }
     }
 
+    public String datosVuelos() {
+        String respuesta = "";
+        ArrayList<Vuelo> vuelos = this.getVuelos();
+        for(Vuelo vuelo: vuelos){
+            respuesta += vuelo.toString();
+        }
+        return respuesta;
+    }
+
 
     public String[] getInformacionEspecificaPistas(int identificador){
         System.out.println("Recopilando informacion de : " + identificador);
